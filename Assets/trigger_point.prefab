@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33505835281618862}
   - component: {fileID: 135590852255717660}
   - component: {fileID: 23500113165639074}
-  - component: {fileID: 114655696785805006}
   - component: {fileID: 114966783381207982}
   m_Layer: 0
   m_Name: trigger_point
@@ -83,17 +82,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259701951704860}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114655696785805006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259701951704860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6e403166d28984a861240957cc5fb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114966783381207982
 MonoBehaviour:
   m_ObjectHideFlags: 1
