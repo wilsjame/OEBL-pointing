@@ -11,7 +11,7 @@ public class SpawnHotspots : MonoBehaviour {
 	/* Trigger point prefab */
 	public Transform trigger_point;
 
-	/* Another global variable (oh no!) to keep track of list iterations */
+	/* Another global variable (oh no!) to keep track of spawned points */
 	public int itr = 0;
 
 	/* Use this for initialization */
@@ -59,27 +59,6 @@ public class SpawnHotspots : MonoBehaviour {
 			Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
 			coOrds_collection.Add (pos);
 		}
-	
-		/* Do only once, Fisher Yates shuffle list to randomize spawn order */
-		/*
-		if (itr == 0) {
-
-			// Debugging 
-			Debug.Log ("Shuffling hotspot spawn points!");
-
-			int random_placeholder;
-
-			for (int i = 0; i < coOrds_collection.Count; i++) {
-				random_placeholder = i + Random.Range (0, coOrds_collection.Count - i);
-
-				// Swap 
-				coords_temp = coOrds_collection [i];
-				coOrds_collection [i] = coOrds_collection [random_placeholder];
-				coOrds_collection [random_placeholder] = coords_temp;
-			}
-
-		}
-		*/
 			
 		/* Begin spawning */
 		if (itr < coOrds_collection.Count) {
@@ -87,14 +66,15 @@ public class SpawnHotspots : MonoBehaviour {
 			/* Debugging */
 			Debug.Log ("coOrds_collection count: " + coOrds_collection.Count + " itr: " + itr);
 
-			/* Spawn the point */ 
-			Instantiate (trigger_point, coOrds_collection [itr], Quaternion.identity);
+			/* Spawn the point at random */ 
+			Instantiate (trigger_point, coOrds_collection [Random.Range (0, coOrds_collection.Count)], Quaternion.identity);
 			itr++;
 
-			/* Debugging */
+			/* Debugging and spawn points forever */
 			if (itr == coOrds_collection.Count) {
-				Debug.Log ("Entire Coords_Collection spawned!");
+				Debug.Log ("Entire Coords_Collection spawned! Starting over.");
 				Debug.Log ("coOrds_collection count: " + coOrds_collection.Count + " itr: " + itr);
+				itr = 0;
 			}
 
 		}
