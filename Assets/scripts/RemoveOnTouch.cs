@@ -94,8 +94,12 @@ namespace HoloToolkit.Unity.InputModule
 			if (IsDraggingEnabled && isDragging)
 			{
 
-				/* Destroy when touched */
+				/* Remove this point when touched */
 				Destroy (this.gameObject);
+
+				/* Spawn a new active point */
+				GameObject.Find ("GameObject_SpawnHotSpots").GetComponent<SpawnHotspots> ().HotSpotTriggerInstantiate ();
+
 			}
 		}
 
