@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135590852255717660}
   - component: {fileID: 23500113165639074}
   - component: {fileID: 114655696785805006}
+  - component: {fileID: 114966783381207982}
   m_Layer: 0
   m_Name: trigger_point
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1259701951704860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.039, y: 0.085, z: 0.9}
-  m_LocalScale: {x: 0.024999999, y: 0.024999999, z: 0.024999999}
+  m_LocalScale: {x: 0.026, y: 0.026, z: 0.026}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,6 +94,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6e403166d28984a861240957cc5fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114966783381207982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259701951704860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1435d1647be0647b4ab96a5f3927c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  RotationMode: 0
+  PositionLerpSpeed: 0.2
+  RotationLerpSpeed: 0.2
+  IsDraggingEnabled: 1
 --- !u!135 &135590852255717660
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -103,5 +121,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
