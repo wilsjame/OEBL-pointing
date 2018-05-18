@@ -66,6 +66,10 @@ namespace HoloToolkit.Unity.InputModule
 
 		private void Start()
 		{
+
+			/* Set object's initial color */
+			GetComponent<Renderer>().material.color = Color.red;
+
 			if (HostTransform == null)
 			{
 				HostTransform = transform;
