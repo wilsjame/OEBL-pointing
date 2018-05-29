@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SpawnHotspots : MonoBehaviour {
 
+	/* Parent gameObject to hold generated hotspot collection */
+	GameObject parentObject;
+
 	/* Points to be used in circular array */
 	public Transform static_point;
 
@@ -38,7 +41,7 @@ public class SpawnHotspots : MonoBehaviour {
 		for (int i = 0; i < numberOfObjects; i++) {
 			float angle = i * Mathf.PI * 2 / numberOfObjects;
 			Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
-			Instantiate(static_point, pos, Quaternion.identity);
+			Instantiate(static_point, pos, Quaternion.identity, this.transform); // Make this gameObject the parent
 		}
 
 	}
@@ -67,7 +70,9 @@ public class SpawnHotspots : MonoBehaviour {
 			Debug.Log ("coOrds_collection count: " + coOrds_collection.Count + " itr: " + itr);
 
 			/* Spawn the point at random */ 
-			Instantiate (trigger_point, coOrds_collection [Random.Range (0, coOrds_collection.Count)], Quaternion.identity);
+			Transform trigger = Instantiate (trigger_point, coOrds_collection [Random.Range (0, coOrds_collection.Count)], Quaternion.identity, this.transform); // Make this gameObject the parent
+			trigger.localPosition = coOrds_collection [Random.Range (0, coOrds_collection.Count)]; // Spawn position relative to parent
+
 			itr++;
 
 			/* Debugging and spawn points forever */
