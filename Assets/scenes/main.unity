@@ -122,6 +122,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1333553361}
     m_Modifications:
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011864058216, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -157,6 +162,31 @@ Prefab:
     - target: {fileID: 1000011713906408, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
       propertyPath: m_Name
       value: Distance_Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 183610698}
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: getSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013369595812, guid: a61fbf52f79ff5b479d7c59ec56dd0bc,
+        type: 2}
+      propertyPath: OnUpdateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a61fbf52f79ff5b479d7c59ec56dd0bc, type: 2}
@@ -244,6 +274,46 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &183610697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 183610699}
+  - component: {fileID: 183610698}
+  m_Layer: 0
+  m_Name: DistanceSlider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &183610698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183610697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79eebff73e8881640b4b514b518f6517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &183610699
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183610697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1859628683}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &229033253
 Prefab:
   m_ObjectHideFlags: 0
@@ -979,6 +1049,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1765629196}
+  - {fileID: 183610699}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
