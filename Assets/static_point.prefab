@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23793683131997976}
   m_Layer: 0
   m_Name: static_point
-  m_TagString: Untagged
+  m_TagString: static_sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
