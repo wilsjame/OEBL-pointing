@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Examples.InteractiveElements;
 
-
 public class HeightSlider : MonoBehaviour {
 
 	// Use this for initialization
