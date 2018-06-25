@@ -14,26 +14,22 @@ public class SpawnHotspots : MonoBehaviour {
 	/* Trigger point prefab */
 	public Transform trigger_point;
 
-	/* Another global variable (oh no!) to keep track of spawned points */
-	public int itr = 0;
+	List<Vector3> coOrds_collection = new List<Vector3> ();	/* Entire point collection */
+	public int itr = 0;					/* Keep track of list iterations */
 
 	/* Use this for initialization */
 	void Start () {
 
 		/* Generate */
-		circularArray ();
+		initializeCircularArray (ref coOrds_collection);
 
 		/* Call function once on startup to create initial hotspot */
 		HotSpotTriggerInstantiate ();
 	
 	}
 
-	/* Update is called once per frame */
-	void Update () {
-	}
-
 	/* Generate circular array of static points */ 
-	public void circularArray ()
+	public void initializeCircularArray (ref List<Vector3> coOrds_collection)
 	{
 		int numberOfObjects = 18;
 		float radius = .5f;
@@ -41,6 +37,8 @@ public class SpawnHotspots : MonoBehaviour {
 		for (int i = 0; i < numberOfObjects; i++) {
 			float angle = i * Mathf.PI * 2 / numberOfObjects;
 			Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+			coOrds_collection.Add (pos);
+
 			Instantiate(static_point, pos, Quaternion.identity, this.transform); // Make this gameObject the parent
 		}
 
@@ -50,24 +48,11 @@ public class SpawnHotspots : MonoBehaviour {
 	public void HotSpotTriggerInstantiate ()
 	{
 
-		/* Use a list to handle point coordinates */
-		List<Vector3> coOrds_collection = new List<Vector3> (); 	
-
-		/* Generate and add circular array coodinate points to the list */
-		int numberOfObjects = 18;
-		float radius = .5f;
-
-		for (int i = 0; i < numberOfObjects; i++) {
-			float angle = i * Mathf.PI * 2 / numberOfObjects;
-			Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
-			coOrds_collection.Add (pos);
-		}
-			
 		/* Begin spawning */
 		if (itr < coOrds_collection.Count) {
 			
 			/* Debugging */
-			Debug.Log ("coOrds_collection count: " + coOrds_collection.Count + " itr: " + itr);
+			//Debug.Log ("coOrds_collection count: " + coOrds_collection.Count + " itr: " + itr);
 
 			/* Spawn the point at random */ 
 			Transform trigger = Instantiate (trigger_point, coOrds_collection [Random.Range (0, coOrds_collection.Count)], Quaternion.identity, this.transform); // Make this gameObject the parent
