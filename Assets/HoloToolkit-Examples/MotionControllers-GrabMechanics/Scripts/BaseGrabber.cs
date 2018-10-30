@@ -133,7 +133,7 @@ namespace HoloToolkit.Unity.InputModule.Examples.Grabbables
 
         /// <summary>
         /// If the correct grabbing button is pressed, we set the GrabState.
-        /// Grab behaviour depends on the combination of GrabState, and a grabbable trigger entered
+        /// Grab behavior depends on the combination of GrabState, and a grabbable trigger entered
         /// </summary>
         protected virtual void GrabEnd()
         {
@@ -185,7 +185,7 @@ namespace HoloToolkit.Unity.InputModule.Examples.Grabbables
         {
             contactObjects.Sort(delegate (BaseGrabbable b1, BaseGrabbable b2)
             {
-                return Vector3.Distance(b1.GrabPoint, GrabHandle.position).CompareTo(Vector3.Distance(b1.GrabPoint, GrabHandle.position));
+                return Vector3.Distance(b1.GrabPoint, GrabHandle.position).CompareTo(Vector3.Distance(b2.GrabPoint, GrabHandle.position));
             });
         }
 

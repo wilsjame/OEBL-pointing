@@ -7,31 +7,38 @@ namespace HoloToolkit.Unity.Boundary.Tests
 {
     public class BoundaryTest : MonoBehaviour
     {
+#if UNITY_2017_2_OR_NEWER
         private Material[] defaultMaterials = null;
 
         private void Start()
         {
-#if UNITY_WSA && UNITY_2017_2_OR_NEWER
             BoundaryManager.Instance.RenderBoundary = true;
             BoundaryManager.Instance.RenderFloor = true;
 
             defaultMaterials = GetComponent<Renderer>().materials;
-        
-            if (BoundaryManager.Instance.ContainsObject(gameObject.transform.position))
+
+            int colorPropertyId = Shader.PropertyToID("_Color");
+
+            if (BoundaryManager.Instance.ContainsObject(gameObject.transform.position, UnityEngine.Experimental.XR.Boundary.Type.TrackedArea))
             {
-                Debug.LogFormat("Object is within established boundary. Position: {0}", gameObject.transform.position);
+                Debug.LogFormat("Object {0} is within established boundary. Position: {1}", name, gameObject.transform.position);
 
                 for (int i = 0; i < defaultMaterials.Length; i++)
                 {
                     // Color the cube green if object is within specified boundary.
-                    Color highlightColor = Color.green;
-                    defaultMaterials[i].SetColor("_Color", highlightColor);
+                    defaultMaterials[i].SetColor(colorPropertyId, Color.green);
                 }
             }
-#else
-            BoundaryManager.Instance.RenderBoundary = false;
-            BoundaryManager.Instance.RenderFloor = false;
-#endif
+            else
+            {
+                Debug.LogFormat("Object {0} is outside established boundary. Position: {1}", name, gameObject.transform.position);
+
+                for (int i = 0; i < defaultMaterials.Length; i++)
+                {
+                    // Color the cube red if object is outside specified boundary.
+                    defaultMaterials[i].SetColor(colorPropertyId, Color.red);
+                }
+            }
         }
 
         private void OnDestroy()
@@ -41,5 +48,6 @@ namespace HoloToolkit.Unity.Boundary.Tests
                 Destroy(defaultMaterials[i]);
             }
         }
+#endif
     }
 }

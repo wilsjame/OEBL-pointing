@@ -26,7 +26,7 @@ public class CollectionSizeSlider : MonoBehaviour {
 		float sliderValue = sliderScript.GetSliderValue ();
 
 		// Change the sphere collection size according to the slider value
-		GameObject sphere_collection = GameObject.Find("GameObject_SpawnHotSpots"); // Grab the collection from scene
+		GameObject sphere_collection = GameObject.Find("SpawnHotSpots"); // Grab the collection from scene
 		sphere_collection.transform.localScale = new Vector3(sliderValue, sliderValue, sliderValue);
 	}
 		

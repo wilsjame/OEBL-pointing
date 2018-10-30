@@ -13,7 +13,7 @@ public class SphereSizeSlider : MonoBehaviour {
 		
 		// Change the trigger sphere size according to the slider value 
 		trigger_sphere = GameObject.FindGameObjectWithTag("trigger_sphere");
-		trigger_sphere.transform.localScale = new Vector3(sliderValue + 0.026f, sliderValue + 0.026f, sliderValue + 0.026f); // Make the trigger slightly larger than the static points
+		trigger_sphere.transform.localScale = new Vector3(sliderValue + 0.036f, sliderValue + 0.036f, sliderValue + 0.036f); // Make the trigger slightly larger than the static points
 	}
 
 	// Get slider value, called by slider's event update

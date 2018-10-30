@@ -1,14 +1,13 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using HoloToolkit.Unity;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.Events;
 
 namespace HoloToolkit.Examples.InteractiveElements
 {
     /// <summary>
-    /// updates slider UI based on gesture input
+    /// Updates slider UI based on gesture input
     /// </summary>
     public class SliderGestureControl : GestureInteractiveControl
     {
@@ -25,13 +24,14 @@ namespace HoloToolkit.Examples.InteractiveElements
         public GameObject CenteredDot;
 
         [Tooltip("Sends slider event information on Update")]
-        public UnityEvent OnUpdateEvent;
+        public UnityEventFloat OnUpdateEvent;
 
-		public float GetSliderValue()
-		{
-			//Debug.Log (gameObject.name + " mSliderValue: " + mSliderValue);
-			return mSliderValue;
-		}
+        // addition
+        public float GetSliderValue()
+        {
+            //Debug.Log (gameObject.name + " mSliderValue: " + mSliderValue);
+            return mSliderValue;
+        }
 
         /// <summary>
         /// The value of the slider
@@ -43,17 +43,20 @@ namespace HoloToolkit.Examples.InteractiveElements
                 if (mSliderValue != value)
                 {
                     mSliderValue = value;
-                    OnUpdateEvent.Invoke();
+                    OnUpdateEvent.Invoke(mSliderValue);
                 }
             }
             get
             {
-				// use the slider value to move the height
-				//Debug.Log (mSliderValue);
                 return mSliderValue;
             }
         }
 
+        [SerializeField]
+        /*
+        [Tooltip("Set the starting value for the slider here.")]
+        private float sliderValue = 0;
+        */
         [Tooltip("Min numeric value to display in the slider label")]
         public float MinSliderValue = 0;
 
@@ -66,9 +69,8 @@ namespace HoloToolkit.Examples.InteractiveElements
         [Tooltip("Format the slider value and control decimal places if needed")]
         public string LabelFormat = "#.##";
 
-        private float mSliderValue;
-
         // calculation variables
+        private float mSliderValue; // addition
         private float mValueSpan;
         private float mCachedValue;
         private float mDeltaValue;
@@ -81,9 +83,9 @@ namespace HoloToolkit.Examples.InteractiveElements
         private Vector3 mSliderFillScale;
         private float mSliderWidth;
 
-        private float AutoSliderTime = 0.25f;
-        private float AutoSliderTimerCounter = 0.5f;
-        private float AutoSliderValue = 0;
+        private float autoSliderTime = 0.25f;
+        private float autoSliderTimerCounter = 0.5f;
+        private float autoSliderValue = 0;
 
         private Vector3 mSliderVector;
         private Quaternion mCachedRotation;
@@ -91,7 +93,21 @@ namespace HoloToolkit.Examples.InteractiveElements
         protected override void Awake()
         {
             base.Awake();
-            
+
+            if (MinSliderValue >= MaxSliderValue)
+            {
+                Debug.LogError("Your SliderGestureControl has a min value that's greater than or equal to its max value.");
+                gameObject.SetActive(false);
+                return;
+            }
+
+            if (Centered && MinSliderValue != -MaxSliderValue)
+            {
+                //Debug.LogError("A centered SliderGestureControl requires that the min and max values have the same absolute value, one positive and one negative.");
+                //gameObject.SetActive(false);
+                return;
+            }
+
             if (Knob != null)
             {
                 mStartCenter.z = Knob.transform.localPosition.z;
@@ -110,11 +126,11 @@ namespace HoloToolkit.Examples.InteractiveElements
             mStartSliderPosition = mStartCenter + Vector3.left * mSliderMagnitude / 2;
 
             mValueSpan = MaxSliderValue - MinSliderValue;
-            mSliderValue = Mathf.Clamp(SliderValue, MinSliderValue, MaxSliderValue);
+            mSliderValue = Mathf.Clamp(SliderValue, MinSliderValue, MaxSliderValue); // change 
 
             if (!Centered)
             {
-                mDeltaValue = SliderValue / mValueSpan;
+                mDeltaValue = (SliderValue - MinSliderValue) / mValueSpan;
             }
             else
             {
@@ -156,22 +172,22 @@ namespace HoloToolkit.Examples.InteractiveElements
             }
 
             base.ManipulationUpdate(startGesturePosition, currentGesturePosition, startHeadOrigin, startHeadRay, gestureState);
-            
+
             // get the current delta
-            float delta =  (CurrentDistance > 0) ? CurrentPercentage : -CurrentPercentage;
-            
+            float delta = (CurrentDistance > 0) ? CurrentPercentage : -CurrentPercentage;
+
             // combine the delta with the current slider position so the slider does not start over every time
             mDeltaValue = Mathf.Clamp01(delta + mCachedValue);
 
             if (!Centered)
             {
-                SliderValue = mDeltaValue * mValueSpan;
+                SliderValue = mDeltaValue * mValueSpan + MinSliderValue;
             }
             else
             {
                 SliderValue = mDeltaValue * mValueSpan * 2 - mValueSpan;
             }
-            
+
             UpdateVisuals();
 
             if (gestureState == GestureInteractive.GestureManipulationState.None)
@@ -197,46 +213,45 @@ namespace HoloToolkit.Examples.InteractiveElements
             switch (gestureValue)
             {
                 case 0:
-                    AutoSliderValue = 0;
+                    autoSliderValue = 0;
                     break;
                 case 1:
-                    AutoSliderValue = 0.5f;
+                    autoSliderValue = 0.5f;
                     break;
                 case 2:
-                    AutoSliderValue = 1;
+                    autoSliderValue = 1;
                     break;
             }
-            AutoSliderTimerCounter = 0;
+            autoSliderTimerCounter = 0;
         }
-		
+
         /// <summary>
         /// set the distance of the slider
         /// </summary>
         /// <param name="min"></param>
         /// <param name="max"></param>
-		public void SetSpan(float min, float max)
-		{
-			mValueSpan = max - min;
-			MaxSliderValue = max;
-			MinSliderValue = min;
-		}
+        public void SetSpan(float min, float max)
+        {
+            mValueSpan = max - min;
+            MaxSliderValue = max;
+            MinSliderValue = min;
+        }
 
         /// <summary>
         /// override the slider value
         /// </summary>
         /// <param name="value"></param>
-		public void SetSliderValue(float value)
-		{
-			if(GestureStarted)
-			{
-				return;
-			}
-			
-			mSliderValue = Mathf.Clamp(value, MinSliderValue, MaxSliderValue);
-			mDeltaValue = SliderValue / MaxSliderValue;
-			UpdateVisuals();
-            mCachedValue = mDeltaValue;
+        public void SetSliderValue(float value)
+        {
+            if (GestureStarted)
+            {
+                return;
+            }
 
+            SliderValue = Mathf.Clamp(value, MinSliderValue, MaxSliderValue);
+            mDeltaValue = SliderValue / MaxSliderValue;
+            UpdateVisuals();
+            mCachedValue = mDeltaValue;
         }
 
         // update visuals
@@ -282,20 +297,14 @@ namespace HoloToolkit.Examples.InteractiveElements
             // set the label
             if (Label != null)
             {
-                float displayValue = SliderValue;
-                if (Centered)
-                {
-                    displayValue = SliderValue * 2 - SliderValue;
-                }
-
                 if (LabelFormat.IndexOf('.') > -1)
                 {
-                    Label.text = displayValue.ToString(LabelFormat);
+                    Label.text = SliderValue.ToString(LabelFormat);
 
                 }
                 else
                 {
-                    Label.text = Mathf.Round(displayValue).ToString(LabelFormat);
+                    Label.text = Mathf.Round(SliderValue).ToString(LabelFormat);
                 }
             }
         }
@@ -307,26 +316,26 @@ namespace HoloToolkit.Examples.InteractiveElements
         {
             base.Update();
 
-            if (AutoSliderTimerCounter < AutoSliderTime)
+            if (autoSliderTimerCounter < autoSliderTime)
             {
                 if (GestureStarted)
                 {
-                    AutoSliderTimerCounter = AutoSliderTime;
+                    autoSliderTimerCounter = autoSliderTime;
                     return;
                 }
 
-                AutoSliderTimerCounter += Time.deltaTime;
-                if (AutoSliderTimerCounter >= AutoSliderTime)
+                autoSliderTimerCounter += Time.deltaTime;
+                if (autoSliderTimerCounter >= autoSliderTime)
                 {
-                    AutoSliderTimerCounter = AutoSliderTime;
-                    mCachedValue = AutoSliderValue;
+                    autoSliderTimerCounter = autoSliderTime;
+                    mCachedValue = autoSliderValue;
                 }
 
-                mDeltaValue = (AutoSliderValue - mCachedValue) * AutoSliderTimerCounter / AutoSliderTime + mCachedValue;
-                
+                mDeltaValue = (autoSliderValue - mCachedValue) * autoSliderTimerCounter / autoSliderTime + mCachedValue;
+
                 if (!Centered)
                 {
-                    SliderValue = mDeltaValue * mValueSpan;
+                    SliderValue = mDeltaValue * mValueSpan + MinSliderValue;
                 }
                 else
                 {
@@ -334,7 +343,6 @@ namespace HoloToolkit.Examples.InteractiveElements
                 }
 
                 UpdateVisuals();
-
             }
         }
     }

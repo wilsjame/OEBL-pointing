@@ -22,23 +22,38 @@ namespace HoloToolkit.Examples.InteractiveElements
         public SelectionType Type = SelectionType.single;
 
         [Tooltip("Interactives that will be managed by this controller")]
-        public InteractiveToggle[] Interactives;
+        public List<InteractiveToggle> Interactives;
 
-        [Tooltip("Currently selected indeices or default starting indices")]
+        [Tooltip("Currently selected indices or default starting indices")]
         public List<int> SelectedIndices = new List<int>() { 0 };
 
         [Tooltip("exposed selection changed event")]
         public UnityEvent OnSelectionEvents;
 
+        // list of calls to remove events on recycled buttons
+        private Dictionary<InteractiveToggle, UnityAction> Calls = new Dictionary<InteractiveToggle, UnityAction>();
+
         private bool mHasInit = false;
 
         private void Start()
         {
-            for (int i = 0; i < Interactives.Length; ++i)
+            UpdateInteractives();
+        }
+
+        public void UpdateInteractives()
+        {
+            foreach (InteractiveToggle toggle in Calls.Keys)
+            {
+                toggle.OnSelectEvents.RemoveListener(Calls[toggle]);
+            }
+            Calls.Clear();
+            for (int i = 0; i < Interactives.Count; ++i)
             {
                 int itemIndex = i;
                 // add selection event handler to each button
-                Interactives[i].OnSelectEvents.AddListener(() => HandleOnSelection(itemIndex));
+                UnityAction call = () => HandleOnSelection(itemIndex);
+                Calls.Add(Interactives[i], call);
+                Interactives[i].OnSelectEvents.AddListener(call);
                 if (Type == SelectionType.single)
                 {
                     Interactives[i].AllowDeselect = false;
@@ -46,7 +61,12 @@ namespace HoloToolkit.Examples.InteractiveElements
                 Interactives[i].HasSelection = SelectedIndices.Contains(i);
             }
             OnSelectionEvents.Invoke();
+        }
 
+        public void RemoveInteractive(int itemIndex)
+        {
+            Interactives[itemIndex].OnSelectEvents.RemoveListener(() => HandleOnSelection(itemIndex));
+            Interactives.RemoveAt(itemIndex);
         }
 
         /// <summary>
@@ -56,7 +76,7 @@ namespace HoloToolkit.Examples.InteractiveElements
         public void SetSelection(int index)
         {
             if (!isActiveAndEnabled ||
-                (index < 0 || Interactives.Length <= index))
+                (index < 0 || Interactives.Count <= index))
             {
                 return;
             }
@@ -72,7 +92,7 @@ namespace HoloToolkit.Examples.InteractiveElements
         {
             if (Type == SelectionType.single)
             {
-                for (int i = 0; i < Interactives.Length; ++i)
+                for (int i = 0; i < Interactives.Count; ++i)
                 {
                     if (i != index)
                     {
@@ -106,10 +126,9 @@ namespace HoloToolkit.Examples.InteractiveElements
 
         private void OnDestroy()
         {
-            for (int i = 0; i < Interactives.Length; ++i)
+            for (int i = Interactives.Count - 1; i >= 0; i--)
             {
-                int itemIndex = i;
-                Interactives[i].OnSelectEvents.RemoveListener(() => HandleOnSelection(itemIndex));
+                RemoveInteractive(i);
             }
         }
     }

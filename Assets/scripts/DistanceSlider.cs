@@ -24,9 +24,14 @@ public class DistanceSlider : MonoBehaviour {
 		SliderGestureControl sliderScript = slider.GetComponent<SliderGestureControl>(); // Grab script off of slider
 		float sliderValue = sliderScript.GetSliderValue ();
 
+		// Get the height slider's value
+		GameObject height_slider = GameObject.Find("Height_Slider"); // Grab height slider from scene
+		SliderGestureControl height_sliderScript = height_slider.GetComponent<SliderGestureControl>();
+		float height_sliderValue = height_sliderScript.GetSliderValue ();
+
 		// Move the sphere collection according to the slider value
-		GameObject sphere_collection = GameObject.Find("GameObject_SpawnHotSpots"); // Grab the collection from scene
-		sphere_collection.transform.position = new Vector3(0.0f, 0.0f, sliderValue);
+		GameObject sphere_collection = GameObject.Find("SpawnHotSpots"); // Grab the collection from scene
+		sphere_collection.transform.position = new Vector3(0.0f, height_sliderValue, sliderValue);
 	}
 	
 }

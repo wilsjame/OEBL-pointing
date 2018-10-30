@@ -44,7 +44,7 @@ public class SpawnHotspots : MonoBehaviour {
 
 	}
 
-	/* This function is called from Hotspot.cs after Start () */
+	/* Spawn a trigger points indefinitely */
 	public void HotSpotTriggerInstantiate ()
 	{
 
