@@ -100,7 +100,6 @@ GameObject:
   - component: {fileID: 114000013549609426}
   - component: {fileID: 114000013369595812}
   - component: {fileID: 114854604571829066}
-  - component: {fileID: 114405475122663176}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -246,8 +245,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011713906408}
-  m_LocalRotation: {x: 0, y: 0.09853762, z: 0, w: 0.99513334}
-  m_LocalPosition: {x: 0.3, y: 0.3, z: -1.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4384348759388260}
@@ -262,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011061344986}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: -0.0071, y: 0.1445, z: 0.01}
+  m_LocalPosition: {x: -0.005, y: 0.15399998, z: 0.010000204}
   m_LocalScale: {x: 0.02, y: 0.020000014, z: 0.02000001}
   m_Children: []
   m_Father: {fileID: 4000010675212776}
@@ -289,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 1000011534470254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000010675212776}
   m_RootOrder: 0
@@ -372,11 +371,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ab4e6ac398d56bd47a9b077bebd667b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -387,6 +387,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -404,6 +405,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -419,6 +421,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -436,11 +439,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: dbdaa5ab3d62f9f49956382f1f0bb408, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -451,6 +455,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -468,11 +473,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 691f49469a961fa46b668c6ce062cd63, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -483,6 +489,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -500,11 +507,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 48421763f41687f4ba29fc323c69abd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -515,6 +523,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -582,7 +591,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011061344986}
-  m_Text: 0.0
+  m_Text: 50
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -595,7 +604,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 86574c70442309b45be5a1c37a37a40b, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4291348680
+    rgba: 4292335575
 --- !u!114 &114000010601737356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a36955929b694bb2433ceb5357980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000010121767078}
+  TargetObject: {fileID: 0}
   TransitionTime: 0.25
   SmoothTransition: 1
 --- !u!114 &114000012151299866
@@ -621,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a36955929b694bb2433ceb5357980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000012031565074}
+  TargetObject: {fileID: 0}
   TransitionTime: 0.25
   SmoothTransition: 1
 --- !u!114 &114000012235487670
@@ -635,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a36955929b694bb2433ceb5357980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000011042864930}
+  TargetObject: {fileID: 0}
   TransitionTime: 0.25
   SmoothTransition: 1
 --- !u!114 &114000013369595812
@@ -651,8 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GestureData: 1
   MaxGestureDistance: 0.25
-  AlignmentVector: {x: 3.4137597, y: 0, z: 0}
-  FlipDirecationOnCameraForward: 0
+  AlignmentVector: {x: 1, y: 1, z: 1}
+  FlipDirectionOnCameraForward: 0
   SliderBar: {fileID: 1000010121767078}
   Knob: {fileID: 1000012031565074}
   SliderFill: {fileID: 1000011534470254}
@@ -661,12 +670,13 @@ MonoBehaviour:
   OnUpdateEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  MinSliderValue: -100
-  MaxSliderValue: 100
-  Centered: 1
-  LabelFormat: 0.0
+    m_TypeName: HoloToolkit.Unity.UnityEventFloat, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  sliderValue: 0
+  MinSliderValue: 0
+  MaxSliderValue: 10
+  Centered: 0
+  LabelFormat: 00
 --- !u!114 &114000013549609426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -678,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b5c94b2db7fb646b5a369ac83cf7aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentObject: {fileID: 1000011713906408}
+  ParentObject: {fileID: 0}
   IsEnabled: 1
   DetectHold: 0
   HoldTime: 0.5
@@ -688,18 +698,18 @@ MonoBehaviour:
   OnSelectEvents:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnDownEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   OnHoldEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   StartDelay: 0
   Control: {fileID: 114000013369595812}
   HideCursorOnManipulation: 0
@@ -714,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76a36955929b694bb2433ceb5357980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000011534470254}
+  TargetObject: {fileID: 0}
   TransitionTime: 0.25
   SmoothTransition: 1
 --- !u!114 &114039196419911652
@@ -750,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6c86add047f7e498462872cc4a1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractiveHost: {fileID: 114000013549609426}
+  InteractiveHost: {fileID: 0}
   ColorThemeTag: sliderKnobColor
   PositionThemeTag: 
   ScaleThemeTag: sliderKnobScale
@@ -790,7 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2511acdefd075154eb81faf90c1ae164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractiveHost: {fileID: 114000013549609426}
+  InteractiveHost: {fileID: 0}
   ButtonLabels: {fileID: 0}
   ColorThemeTag: sliderLabelColor
   PositionThemeTag: sliderLabelPosition
@@ -806,29 +816,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ececd0ff1e964894362e9a885b962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000012031565074}
-  TargetValue: {x: 1, y: 1, z: 1.5}
+  TargetObject: {fileID: 0}
+  TargetValue: {x: 0, y: 0, z: 0}
   LerpType: 0
   LerpTime: 0.25
   IsRunning: 0
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &114405475122663176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011713906408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8d5b128a1d8204fb76c86f47b75912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PivotAxis: 1
-  TargetTransform: {fileID: 0}
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114425133298623510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -849,7 +846,7 @@ MonoBehaviour:
   PressSelected: {x: 1, y: 1, z: 1}
   Disabled: {x: 1, y: 1, z: 1.5}
   DisabledSelected: {x: 1, y: 1, z: 1.5}
-  CurrentValue: {x: 1, y: 1, z: 1.5}
+  CurrentValue: {x: 1, y: 1, z: 1}
   Button: {fileID: 0}
 --- !u!114 &114451379618091290
 MonoBehaviour:
@@ -871,7 +868,7 @@ MonoBehaviour:
   PressSelected: {x: -0.0071, y: 0.1445, z: 0.02}
   Disabled: {x: -0.0071, y: 0.1445, z: 0.01}
   DisabledSelected: {x: -0.0071, y: 0.1445, z: 0.01}
-  CurrentValue: {x: -0.0071, y: 0.1445, z: 0.01}
+  CurrentValue: {x: 0, y: 0, z: 0}
   Button: {fileID: 0}
 --- !u!114 &114606406977787976
 MonoBehaviour:
@@ -893,7 +890,7 @@ MonoBehaviour:
   PressSelected: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 1}
   Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
   DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
-  CurrentValue: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   Button: {fileID: 0}
 --- !u!114 &114623199245567628
 MonoBehaviour:
@@ -906,8 +903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b03bcc7db83ce4d8233fcc4ae4ec2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 1000011061344986}
-  TargetValue: {x: -0.0071, y: 0.1445, z: 0.01}
+  TargetObject: {fileID: 0}
+  TargetValue: {x: 0, y: 0, z: 0}
   LerpType: 0
   LerpTime: 0.25
   IsRunning: 0
@@ -915,8 +912,8 @@ MonoBehaviour:
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114672892898193146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -928,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6c86add047f7e498462872cc4a1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractiveHost: {fileID: 114000013549609426}
+  InteractiveHost: {fileID: 0}
   ColorThemeTag: sliderBarColor
   PositionThemeTag: 
   ScaleThemeTag: 
@@ -955,7 +952,7 @@ MonoBehaviour:
   PressSelected: {r: 0.29411766, g: 0.7607843, b: 0.9843137, a: 1}
   Disabled: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   DisabledSelected: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
-  CurrentValue: {r: 0.14509805, g: 0.5058824, b: 0.68235296, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   Button: {fileID: 0}
 --- !u!114 &114769760815125994
 MonoBehaviour:
@@ -968,7 +965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6c86add047f7e498462872cc4a1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractiveHost: {fileID: 114000013549609426}
+  InteractiveHost: {fileID: 0}
   ColorThemeTag: sliderFillColor
   PositionThemeTag: 
   ScaleThemeTag: 
@@ -986,8 +983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8d5b128a1d8204fb76c86f47b75912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PivotAxis: 1
-  TargetTransform: {fileID: 0}
+  pivotAxis: 0
+  targetTransform: {fileID: 0}
 --- !u!114 &114922840319301710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1008,7 +1005,7 @@ MonoBehaviour:
   PressSelected: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   Disabled: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
   DisabledSelected: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
-  CurrentValue: {r: 0.50980395, g: 0.50980395, b: 0.50980395, a: 1}
+  CurrentValue: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   Button: {fileID: 0}
 --- !u!114 &114980341250394410
 MonoBehaviour:
@@ -1021,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6c86add047f7e498462872cc4a1979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractiveHost: {fileID: 114000013549609426}
+  InteractiveHost: {fileID: 0}
   ColorThemeTag: sliderKnobColor
   PositionThemeTag: 
   ScaleThemeTag: 
